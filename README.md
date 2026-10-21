@@ -1,5 +1,10 @@
 # Office, Rank, and Mobility: Decomposing Historical Chinese Bureaucratic Titles with Language Models
 
+[![Preprint: SocArXiv](https://img.shields.io/badge/Preprint-SocArXiv-2C7FB8)](https://osf.io/preprints/socarxiv/eg87f_v1)
+[![Qing model](https://img.shields.io/badge/Hugging%20Face-Qing%20model-FFD21E?logo=huggingface)](https://huggingface.co/bruceyyu/qing-title-decomposition)
+[![Parsed CGED-Q JSL data](https://img.shields.io/badge/Data-CGED--Q%20JSL-4C9F38)](https://dataverse.harvard.edu/file.xhtml?fileId=14356735&version=12.0)
+[![Code license: PolyForm Noncommercial](https://img.shields.io/badge/Code%20license-PolyForm%20NC-blue)](LICENSE)
+
 This repository contains the inference code for [*Office, Rank, and Mobility:
 Decomposing Historical Chinese Bureaucratic Titles with Language Models*](https://osf.io/preprints/socarxiv/eg87f_v1),
 by Yue Yu, Jun Chen, Michael Y. H. Chung, and Cameron Campbell. The method
