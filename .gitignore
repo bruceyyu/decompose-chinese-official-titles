@@ -1,0 +1,37 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Annotations, microdata, learned dictionaries, and row-level evaluation output
+/private/
+/data/
+*.jsonl
+*.parquet
+*.dta
+*.xlsx
+!examples/titles.jsonl
+!examples/korean-titles.jsonl
+predictions*
+comparison.csv
+# Models belong on Hugging Face, not in this GitHub repository
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.tar
+*.tar.gz
+models/
+*.zip
+# Local environments and generated files
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.DS_Store
+*.log
+

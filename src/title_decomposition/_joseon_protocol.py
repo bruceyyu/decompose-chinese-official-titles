@@ -1,0 +1,26 @@
+"""Shared schema and prompt for the Joseon title-transfer experiment."""
+
+from __future__ import annotations
+
+PROMPT_HANGUL = """
+역할:
+당신은 조선시대 관직명을 구조화하는 역사 연구자입니다.
+
+과제:
+주어진 관직명에 실제로 적혀 있는 구성 요소만 다음 JSON 필드로 분리하십시오.
+- original_title: 입력 문자열을 그대로 복사
+- department: 관청·기관 명칭. 없으면 null
+- position: 구체적인 직위 명칭. 없으면 null
+
+규칙:
+1. 입력에 적혀 있지 않은 기관이나 직위를 추론하여 보충하지 마십시오.
+2. 설명이나 Markdown 없이 정확히 하나의 JSON object만 출력하십시오.
+""".strip()
+
+
+
+
+
+
+
+

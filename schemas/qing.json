@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "original_title": {
+      "type": "string"
+    },
+    "duty_office": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "base_office": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "office_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "qualification_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jurisdiction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "garrison": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "noble_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "local_department": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "central_department": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "military_department": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assignment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "additional_title": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ceremonial_office": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warrior_title": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "honors_awards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "original_title",
+    "duty_office",
+    "base_office",
+    "office_status",
+    "qualification_title",
+    "jurisdiction",
+    "garrison",
+    "noble_title",
+    "local_department",
+    "central_department",
+    "military_department",
+    "assignment",
+    "additional_title",
+    "ceremonial_office",
+    "warrior_title",
+    "honors_awards"
+  ]
+}

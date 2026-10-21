@@ -1,0 +1,10 @@
+Official Title Decomposition
+
+Required Notice: Copyright 2026 Yue Yu, Jun Chen, Michael Yan Hon Chung, and Cameron Campbell.
+Required Notice: This software accompanies Office, Rank, and Mobility: Decomposing Historical Chinese Bureaucratic Titles with Language Models.
+Required Notice: https://osf.io/preprints/socarxiv/eg87f_v1
+
+Original software: PolyForm Noncommercial License 1.0.0; see LICENSE.
+The authors' model materials and lookup-table compilation have separate
+CC BY-NC 4.0 terms; see docs/licensing.md and the model cards.
+Third-party models, source data, and dependencies retain their own licenses.

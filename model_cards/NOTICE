@@ -1,0 +1,15 @@
+Official Title Decomposition
+Copyright 2026 Yue Yu, Jun Chen, Michael Yan Hon Chung, and Cameron Campbell.
+https://github.com/bruceyyu/decompose-chinese-official-titles
+
+The authors' adapter contributions, prompt, schema, and model documentation are
+licensed under Creative Commons Attribution-NonCommercial 4.0 International,
+to the extent the authors hold the relevant rights. Retain attribution, the
+license link/text, and indications of modifications when sharing.
+https://creativecommons.org/licenses/by-nc/4.0/
+
+Base model: Qwen/Qwen3.5-4B, by Qwen, under Apache License 2.0.
+https://huggingface.co/Qwen/Qwen3.5-4B
+This is a separately licensed LoRA adapter, not a redistribution of the base
+model. The base model retains its own Apache-2.0 terms; see BASE_MODEL_LICENSE.
+Third-party source data and dependencies retain their respective terms.
