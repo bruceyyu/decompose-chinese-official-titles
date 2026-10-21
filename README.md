@@ -198,16 +198,6 @@ and separate Qing rank results. It loads the published
 Hugging Face adapter, not precomputed answers. The first request loads the
 model; later requests reuse it.
 
-The Qing demo displays five complex titles as clickable examples, covering
-additional titles, assignments, honors, geographic context, and retained base
-offices. Two observed Jinshenlu education-commissioner titles illustrate
-`base_office`: an official serving as 學政 retains a substantive post elsewhere.
-Selecting an example fills the input; the output is generated only when you
-click **Decompose title**, not supplied as a precomputed answer.
-The water-works examples include the geographic hierarchy recorded alongside
-the title, using the original `province-department-subdepartment-title` input
-format; `NA` denotes a missing administrative level.
-
 Use `--device-map mps` for Apple Silicon or `--device-map cuda:0` for an
 available CUDA GPU. To use the other task, restart with `--task joseon`;
 only one model is loaded per app. `--adapter` can override the default Hub ID.
