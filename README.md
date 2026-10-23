@@ -62,7 +62,7 @@ A GPU is recommended; CPU inference can be slow.
 
 ## Models and Data
 
-### Required models
+### Models
 
 Both tasks use a LoRA adapter on top of
 [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B):
@@ -74,10 +74,6 @@ Supply the adapter's local folder or Hugging Face repository ID through
 `--adapter`. The runtime obtains the base model separately, using the revision
 recorded in the adapter configuration. The first run may download model files;
 cached models run locally without a paid inference API.
-
-**Important note:** The Qing adapter was retrained for this release; it is not
-the original checkpoint used for the paper's benchmark. The model cards
-describe the supplied weights, their evaluations, and their limitations.
 
 ### Input data
 
@@ -95,8 +91,7 @@ or evaluation data.
 The underlying public CGED-Q records are available through the
 [CGED-Q dataset](https://doi.org/10.7910/DVN/GMQWVZ), subject to its access
 conditions. The data are hosted separately; this code repository does not include
-CGED-Q records or human annotations. Training and evaluation scripts and the
-paper's career-mobility analyses are outside this inference release.
+CGED-Q records or human annotations.
 
 ## Workflow
 
