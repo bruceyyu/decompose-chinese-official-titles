@@ -1,0 +1,89 @@
+{
+  "parsed_input": {
+    "filename": "CGED-Q Public Release 1760-1798 1850-1864 1900-1912 parsed titles 21 Oct 2026-1.tab",
+    "sha256": "dc5eccd7c5699b875afc1c755cc9baa26fe40658bcb00bbf3dad7dd4ba22cf95",
+    "input_rows": 1261637,
+    "rows_without_record_keys": 0,
+    "keyed_rows": 1261637
+  },
+  "people_input": {
+    "filename": "CGED-Q Public Release 1760-1798 1850-1864 1900-1912 with person_id 28 Aug 2026.tab",
+    "sha256": "92d74b4dbca2de3ad67a502f2cd2e14815d4ba0cc27776b1c06063873928d476",
+    "input_rows": 1261658,
+    "rows_without_record_keys": 21,
+    "keyed_rows": 1261637
+  },
+  "merge": {
+    "both": 1261637,
+    "left_only": 0,
+    "right_only": 0
+  },
+  "interpolated_rows_excluded": 97,
+  "missing_person_id_rows_excluded": 92259,
+  "selected_records": 323301,
+  "records_using_base_office": 1954,
+  "selected_first_year": 1850,
+  "selected_last_year": 1864,
+  "unavailable_internal_filters": [
+    "invalid_record",
+    "duplicated_record",
+    "exclude_record",
+    "inconsistent_post",
+    "zsbl"
+  ],
+  "new_person_linkage": false,
+  "rank_recalculation": false,
+  "analysis_code_sha256": "00083a12f6fa7f3348de907afa0d2b5d19895c14a6b1801ef5a7c91dc37b07a9",
+  "python": "3.11.11",
+  "dependencies": {
+    "numpy": "1.26.4",
+    "pandas": "3.0.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.10.0"
+  },
+  "person_years": 181441,
+  "office_ranked_person_years": 142491,
+  "three_year_pairs": 62913,
+  "pair_officials": 16471,
+  "gap_years": 3,
+  "reporting_group_years": 2,
+  "reporting_group_anchor": "first year of each selected public window",
+  "draws": 1000,
+  "seed": 20261006,
+  "start_year_filter": 1850,
+  "end_year_filter": 1864,
+  "component_history_resets_at_window_boundaries": true,
+  "observed_record_years": {
+    "1850-1864": [
+      1850,
+      1851,
+      1852,
+      1854,
+      1855,
+      1856,
+      1857,
+      1858,
+      1859,
+      1860,
+      1861,
+      1862,
+      1863,
+      1864
+    ]
+  },
+  "observed_pair_start_years": {
+    "1850-1864": [
+      1851,
+      1852,
+      1854,
+      1855,
+      1856,
+      1857,
+      1858,
+      1859,
+      1860,
+      1861
+    ]
+  },
+  "not_an_exact_manuscript_replication": true
+}

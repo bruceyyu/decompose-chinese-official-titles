@@ -10,6 +10,7 @@
 *.jsonl
 *.parquet
 *.dta
+*.tab
 *.xlsx
 !examples/titles.jsonl
 !examples/korean-titles.jsonl
@@ -34,4 +35,5 @@ build/
 dist/
 .DS_Store
 *.log
+.ipynb_checkpoints/
 

@@ -16,6 +16,8 @@ authors = [{name = "Yue Yu"}, {name = "Jun Chen"}, {name = "Michael Yan Hon Chun
 [project.optional-dependencies]
 inference = ["torch>=2.6,<3", "transformers==5.5.4", "peft==0.21.2", "accelerate==1.15.0", "safetensors>=0.5,<1", "huggingface-hub>=0.34,<2"]
 demo = ["gradio==6.30.0"]
+analysis = ["numpy>=1.24,<3", "pandas>=1.5,<4", "scipy>=1.10,<2", "matplotlib>=3.8,<4"]
+notebook = ["jupyterlab>=4,<5", "ipykernel>=6,<8", "requests>=2.32,<3"]
 
 [project.scripts]
 official-titles = "title_decomposition.cli:main"

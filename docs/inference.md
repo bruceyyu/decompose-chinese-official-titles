@@ -2,50 +2,39 @@
 
 ## Prepare inputs
 
-Use UTF-8 JSONL with one title per line, either a JSON string or an object:
+Use UTF-8 JSONL, with one title per line as a JSON string or an object:
 
 ```json
 {"original_title": "知縣"}
 ```
 
-Use the Qing adapter for Qing titles and the separate Korean-script adapter
-for Joseon titles. The task determines the instruction, schema, and output
-limit. The runtime checks the adapter's task metadata if present. It loads
-the base-model revision recorded in the adapter configuration.
-
-## Run
-
-Install `pip install -e '.[inference]'`. Download the appropriate adapter
-folder separately; the model cards describe the required files and licenses.
+## Parse titles
 
 ```bash
-official-titles parse --task qing --adapter /path/to/qing-adapter \
+python -m pip install -e '.[inference]'
+official-titles parse --task qing --adapter bruceyyu/qing-title-decomposition \
   --input my-titles.jsonl --output private/parsed.jsonl --with-ranks
 ```
 
-The first run may download the Qwen base model. Once both model and adapter
-files are cached locally, paid inference services and API keys are not needed.
-For disconnected use, cache the base model first and set `HF_HUB_OFFLINE=1`.
-The optional `HF_TOKEN` follows the Hugging Face client's normal environment
-handling; the package does not load or require an `.env` file.
+For Joseon titles, use `--task joseon` and
+`--adapter bruceyyu/joseon-title-decomposition`, omitting `--with-ranks`.
+A local adapter folder can replace either repository ID.
 
-Thinking is disabled and decoding is greedy, with 512 new tokens for Qing
-and 256 for Joseon. Hardware, library versions, and inference engines can
-still affect generated output. The runtime uses Transformers and PEFT rather
-than merging the adapter into tied base-model weights. Sufficient memory is
-required; CPU inference can be slow.
-The default `--device-map auto` chooses the loading layout automatically.
-Use `--device-map cpu`, `mps` (Apple Silicon), or `cuda:0` to request a device
-explicitly when it is available and has sufficient memory.
+The first run downloads the adapter and its configured Qwen base-model
+revision. Inference uses Transformers and PEFT, greedy decoding, and disabled
+thinking. Output limits are 512 new tokens for Qing and 256 for Joseon.
 
-Output must satisfy the exact task schema and retain `original_title`.
-Invalid model records produce indexed error lines and a nonzero exit status;
-no component is fabricated to repair a missing key. Malformed input JSON
-stops the command. Completed preceding lines can remain in the new output
-file. Existing files are never overwritten. Correct JSON is not proof of
-historical correctness: validate the parser on new sources before relying on it.
+`--device-map auto` selects the loading layout. Use `cpu`, `mps` (Apple Silicon),
+or `cuda:0` to select a device. A GPU is recommended; CPU inference is slower.
+For offline use, cache the models first and set `HF_HUB_OFFLINE=1`.
+Use `HF_TOKEN` when accessing a private model repository.
 
-## Validate or assign ranks without a model
+Each response is checked against the task schema and must preserve
+`original_title`. Failed records produce indexed error entries and a nonzero
+exit status. Malformed input JSON stops processing; preceding output remains.
+Choose a new output filename for each run.
+
+## Validate components or assign ranks
 
 ```bash
 official-titles validate --task qing \
@@ -53,9 +42,9 @@ official-titles validate --task qing \
 official-titles rank --input my-components.jsonl --output private/ranked.jsonl
 ```
 
-These commands require the base package only. `rank` accepts complete Qing
-schema records and adds separate numeric ranks and English labels. In Python,
-`title_decomposition.rank_record` also accepts a partial component object:
+These commands use the base installation, `python -m pip install -e .`.
+The CLI expects complete component records. The Python rank function also
+accepts partial records:
 
 ```python
 from title_decomposition import rank_record
@@ -64,7 +53,5 @@ result = rank_record({"duty_office": "知縣", "additional_title": ["五品銜"]
 # office_rank: 7 (7a); additional_title_rank: 5 (5a)
 ```
 
-See [schema and rank definitions](schema.md) for missing/unranked values and
-the retained-base-office rule. No Qing rank lookup is applied to Joseon output.
-Training, held-out model evaluation, and career-mobility calculations are
-outside this package's scope.
+See [schema and rank definitions](schema.md) and the
+[public-data mobility example](public_mobility.md).

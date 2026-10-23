@@ -1,46 +1,30 @@
-# Attribution and noncommercial release
+# Licensing and attribution
 
-At the maintainer's direction, the original software is offered under
-**PolyForm Noncommercial License 1.0.0**. Keep `LICENSE` and the `Required Notice:`
-attribution lines in `NOTICE` when distributing copies. The license permits
-noncommercial purposes, defines personal research uses, and expressly includes
-the listed educational/public/noncommercial organizations; its full definitions
-govern, not a shorthand claim that every institution's activity is forbidden.
-The release is source-available, not unrestricted or OSI open-source software.
-Official text: https://polyformproject.org/licenses/noncommercial/1.0.0 .
+## Code
 
-The authors' adapter contributions, model cards, prompt/schema assets,
-documentation, aggregate results, and original lookup-table compilation are
-offered under **CC BY-NC 4.0**, to the extent they are protected by rights the
-authors hold. Retain attribution, link to the license, and indicate changes when
-sharing. The original institutional facts and public-domain material are not
-made private property by inclusion here. Complete text is in
-`licenses/CC-BY-NC-4.0.txt`; official terms:
-https://creativecommons.org/licenses/by-nc/4.0/ .
+Code uses [PolyForm Noncommercial 1.0.0](../LICENSE). When distributing copies,
+retain the license or its URL and the `Required Notice:` lines in
+[NOTICE](../NOTICE). The license defines permitted noncommercial purposes,
+including personal research and use by the listed educational and public
+organizations.
 
-These noncommercial terms do not authorize commercial uses outside their scope;
-such uses require separate permission where the authors hold the relevant
-rights. Copyright exceptions and limitations remain applicable. Contributors
-must have authority to offer their contributions under the selected licenses.
-The project should not claim that a license guarantees enforceability in every
-jurisdiction or controls material outside the authors' rights.
+## Model materials and documentation
 
-Human annotations are deliberately excluded: no license or access-on-request
-promise is made for them. Withholding label files does not guarantee that a
-trained model cannot reproduce some training examples, and it does not replace
-transparent reporting of annotation and evaluation limitations.
+The authors' adapter contributions, model cards, prompts, schemas,
+documentation, aggregate results, and original lookup-table compilation use
+[CC BY-NC 4.0](../licenses/CC-BY-NC-4.0.txt). Attribute the authors, link to the
+license, and indicate changes when sharing. Commercial use of these
+contributions requires separate permission.
 
-## Base model and third-party material
+## Third-party material
 
-Qwen/Qwen3.5-4B is independently distributed under **Apache 2.0**:
-https://huggingface.co/Qwen/Qwen3.5-4B . Base weights are not included. The
-noncommercial adapter license does not relicense the base model. Its Apache
-text is included separately as `licenses/Apache-2.0.txt`, and exported adapter
-folders preserve the base-model attribution and license separately.
+- [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) uses
+  [Apache 2.0](../licenses/Apache-2.0.txt).
+- Transformers, PEFT, and other dependencies retain their respective licenses.
+- [CGED-Q](https://doi.org/10.7910/DVN/GMQWVZ), JoseonTSI, and NIKH data retain
+  their original distribution terms.
+- Institutional sources and variant notes for the rank lookup are documented
+  in [title_ranks](../src/title_ranks/README.md).
 
-Transformers, PEFT, and other dependencies are installed,
-not vendored or relicensed here. JoseonTSI and NIKH material are not mirrored;
-consult their original distribution terms. CGED-Q data remain subject to the
-conditions at https://doi.org/10.7910/DVN/GMQWVZ . The consolidated rank table
-retains source and variant notes; it contains institutional mappings, not individual
-annotation or roster rows. See `src/title_ranks/README.md` for provenance.
+Cite the [paper](../README.md#citation) when using this work and cite the
+original datasets when using their records.

@@ -1,49 +1,53 @@
-# Output schema and rank definitions
+# Output schema and ranks
 
-`schemas/qing.json` specifies the output contract and `prompts/qing.txt` the
-current training instruction. Both use `duty_office`, as do training targets,
-parsed records, rank lookup, and field-level metrics. There is one public
-schema per task; archived training formats are not part of this interface.
+## Qing components
 
-Single-valued component fields are strings or null:
+The [Qing schema](../schemas/qing.json) contains `original_title` and fifteen
+components. All fields are required; `original_title` preserves the input.
 
-- `duty_office`: normalized current post, stripped of status, honors, and location.
+Single-valued fields are strings, or `null` when absent:
+
+- `duty_office`: normalized current post.
 - `base_office`: substantive post retained during a deputation.
-- `office_status`: acting, probationary, supernumerary, or other holding status.
+- `office_status`: acting, probationary, supernumerary, or other status.
 - `qualification_title`: eligibility for an office not yet held.
-- `jurisdiction`: territory or functional jurisdiction.
-- `garrison`: stated place of station.
-- `noble_title`: noble title, kept separate from the nine-rank office scale.
+- `jurisdiction`: territorial or functional jurisdiction.
+- `garrison`: place of station.
+- `noble_title`: noble title.
 
-Multi-valued component fields are arrays of strings, empty when absent:
+Multi-valued fields are arrays of strings, empty when absent:
 
 - `local_department`, `central_department`, `military_department`.
 - `assignment`: concurrent, temporary, or specialized duties.
-- `additional_title`: conferred office titles or grades without the post's duties.
+- `additional_title`: office titles or grades held without the post's duties.
 - `ceremonial_office`, `warrior_title`, `honors_awards`.
 
-`original_title` is a required, unchanged string and is excluded from the
-fifteen-field average score. A missing key is invalid, even if its field could
-otherwise be null. Schema validity and historical accuracy are different:
-software validation does not establish a correct institutional reading.
+## Joseon components
 
-The Joseon schema has `original_title`, `department`, and `position`. The latter
-two are strings or null. Its prompt asks for only components printed in the
-Korean-script title, not restoration of a normalized institutional hierarchy.
+The [Joseon schema](../schemas/joseon.json) contains `original_title`,
+`department`, and `position`. The latter two are strings or `null`, identifying
+components printed in the Korean-script title.
 
-## Rank output
+## Qing ranks
 
-`rank_record` returns separate numeric `ranks` and English `rank_labels`.
-The office rank records whether it came from the current or base office.
-Following the paper's evaluation lookup, a ranked base office can stand in
-when the current office has no rank from 1a through 9b. Raw current/base ranks
-remain in the output: explicit unranked (10) is not an unmatched value (null).
-The raw fields are `duty_office_rank` and `base_office_rank`; `office_rank`
-is the selected rank after the base-office rule. Its source is recorded as
-`duty_office` or `base_office`.
-The rank-only API does not estimate mobility. The `title_ranks` lookup
-consolidates institutional reference tables, not annotation labels. Its
-reference table and documentation are included; noble and hereditary titles
-are not mapped to office ranks. Multi-valued additional titles yield the most senior mapped rank
-within that component; that does not combine additional titles with office rank.
+Rank output has three entries: `ranks`, `rank_labels`, and `office_rank_source`.
+The numeric scale runs from **1a = 1** to **9b = 9.5**, in half-point steps;
+lower values mean greater seniority. **10** means explicitly unranked;
+**null** means absent or unmatched. English labels use `1a`, `1b`, and so on.
+
+The `ranks` fields are:
+
+- `duty_office_rank` and `base_office_rank`: separate office ranks.
+- `office_rank`: duty-office rank, using a ranked base office when the duty
+  office is unranked or unmatched.
+- `additional_title_rank`: the most senior mapped additional title.
+- `eligibility_rank`: the rank of the office for which the official is eligible.
+
+`office_rank_source` identifies `duty_office` or `base_office`, or is `null`
+when the selected office rank is unavailable. Noble and hereditary titles
+remain separate from office ranks. Rank lookup applies to Qing components.
+
+The public CGED-Q tables name the eligibility-rank column
+`qualification_title_rank`. See the [lookup documentation](../src/title_ranks/README.md)
+for institutional sources and mappings.
 

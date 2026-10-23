@@ -37,6 +37,7 @@ The Qing and Joseon adapters use different schemas and are not interchangeable.
 - [Workflow](#workflow)
 - [Step-by-Step Instructions](#step-by-step-instructions)
 - [Interactive Demo](#interactive-demo)
+- [Public-Data Mobility Example](#public-data-mobility-example)
 - [Output and Rank Definitions](#output-and-rank-definitions)
 - [Repository Structure](#repository-structure)
 - [Citation](#citation)
@@ -209,6 +210,22 @@ only one model is loaded per app. `--adapter` can override the default Hub ID.
 The demo listens on localhost and does not create a public sharing link.
 It does not save entered titles or predictions to a dataset.
 
+## Public-Data Mobility Example
+
+We also provide an [1850–1864 public-data tutorial](docs/public_mobility.md) that merges the released
+parsed titles with existing CGED-Q person identifiers and measures three-year
+advancement separately in office, additional title, and eligibility, similar to the case study in our manuscript. It produces
+two-year reporting groups, a two-panel figure, and official-level bootstrap
+intervals without loading a language model.
+For a walkthrough with rendered results, open the
+[Jupyter notebook](examples/public_mobility.ipynb). It downloads the two public
+tables directly from Harvard Dataverse, verifies their checksums, and displays
+the mobility curves. Downloaded data and generated files stay in the
+Git-ignored `private/` directory.
+
+The public release covers separated periods, so this reproduces
+the measurement procedure rather than the manuscript's full-period estimates.
+
 ## Output and Rank Definitions
 
 Each output line is a JSON object.
@@ -244,8 +261,8 @@ prompts/                  # Task-specific model instructions
 schemas/                  # JSON output schemas
 configs/                  # Training configurations
 model_cards/              # Model descriptions, evaluations, and limitations
-examples/                 # Artificial input and rank-lookup examples
-docs/                     # Inference, schema, and licensing documentation
+examples/                 # Artificial input, rank lookup, and public-data mobility example
+docs/                     # Usage, definitions, licensing, and aggregate example results
 ```
 
 Adapter weights are distributed separately on Hugging Face, not in this
