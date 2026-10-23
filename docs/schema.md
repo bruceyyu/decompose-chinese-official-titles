@@ -49,5 +49,5 @@ remain separate from office ranks. Rank lookup applies to Qing components.
 
 The public CGED-Q tables name the eligibility-rank column
 `qualification_title_rank`. See the [lookup documentation](../src/title_ranks/README.md)
-for institutional sources and mappings.
+for institutional sources, historical scope, and custom mappings.
 

@@ -231,6 +231,10 @@ Each output line is a JSON object.
 - **Joseon:** `original_title`, `department`, and `position`.
 - **Qing with ranks:** adds `ranks`, `rank_labels`, and `office_rank_source`.
 
+The lookup reflects our interpretation of **late-Qing ranks** and may contain
+errors. Ranks can differ in the early Qing, Ming, or other bureaucratic systems;
+check them for your setting. See [using your own mappings](src/title_ranks/README.md#use-your-own-mappings).
+
 Numeric ranks are lower for more senior grades: `1a = 1`, `1b = 1.5`, through
 `9b = 9.5`. The value `10` means explicitly unranked; `null` means absent or
 unmatched. Duty-office, retained-base-office, additional-title, and eligibility
